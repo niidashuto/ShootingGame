@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyWayShot : MonoBehaviour
+public class EnemyFixedShot : MonoBehaviour
 {
     //プレイヤー
     private GameObject player;
@@ -15,6 +15,9 @@ public class EnemyWayShot : MonoBehaviour
 
     //打ち出す弾の間隔を調整する
     public float bulletWaySpace = 30;
+
+    //打ち出す弾の角度を調整する
+    public int bulletWayAxis = 0;
 
     //打ち出す間隔を決める
     public float time = 1;
@@ -52,7 +55,7 @@ public class EnemyWayShot : MonoBehaviour
             float bulletWaySpaceSplit = 0;
 
             //1回で発射する弾数分だけループする
-            for(int i=0;i<bulletWayNum;i++)
+            for (int i = 0; i < bulletWayNum; i++)
             {
                 //弾を生成
                 CreateShotObject(bulletWaySpace - bulletWaySpaceSplit + transform.localEulerAngles.y);
@@ -66,14 +69,6 @@ public class EnemyWayShot : MonoBehaviour
     }
     private void CreateShotObject(float axis)
     {
-        //ベクトルを取得
-        var direction = player.transform.position - transform.position;
-
-        //ベクトルのyを初期化
-        direction.y = 0;
-
-        //向きを取得する
-        var lookRotation = Quaternion.LookRotation(direction, Vector3.up);
 
         //弾を生成する
         GameObject bulletClone =
@@ -86,6 +81,6 @@ public class EnemyWayShot : MonoBehaviour
         bulletObject.SetCharacterObject(gameObject);
 
         //弾を打ち出す角度を変更する
-        bulletObject.SetForwardAxis(lookRotation * Quaternion.AngleAxis(axis, Vector3.up));
+        bulletObject.SetForwardAxis(Quaternion.AngleAxis(axis, Vector3.up));
     }
 }
