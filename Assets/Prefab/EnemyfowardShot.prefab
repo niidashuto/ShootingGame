@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7753104642340921975, guid: e6b9d8c23157c414c92a1cc7b5bdd622, type: 3}
-  time: 0.1
+  time: 0.5
   delayTime: 1
 --- !u!114 &4535862415739917497
 MonoBehaviour:
