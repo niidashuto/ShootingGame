@@ -58,7 +58,7 @@ public class EnemyFixedShot : MonoBehaviour
             for (int i = 0; i < bulletWayNum; i++)
             {
                 //’e‚ð¶¬
-                CreateShotObject(bulletWaySpace - bulletWaySpaceSplit + transform.localEulerAngles.y);
+                CreateShotObject(bulletWaySpace - bulletWaySpaceSplit + bulletWayAxis - transform.localEulerAngles.y);
 
                 //Šp“x‚ð’²®‚·‚é
                 bulletWaySpaceSplit += (bulletWaySpace / (bulletWayNum - 1)) * 2;
