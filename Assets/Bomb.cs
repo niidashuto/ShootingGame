@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+    //発生させるパーティクルを設定
+    public GameObject particle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,8 @@ public class Bomb : MonoBehaviour
             {
                 Destroy(enemyBulletObjects[i].gameObject);
             }
+            //パーティクルを持ったオブジェクトを生成する
+            Instantiate(particle,Vector3.zero,Quaternion.identity);
         }
     }
 }
