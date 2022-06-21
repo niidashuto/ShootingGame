@@ -21,7 +21,10 @@ public class Bomb : MonoBehaviour
                 GameObject.FindGameObjectsWithTag("EnemyBullet");
 
             //上で取得した全てのオブジェクトを消滅させる
-            for()
+            for(int i = 0; i < enemyBulletObjects.Length; i++)
+            {
+                Destroy(enemyBulletObjects[i].gameObject);
+            }
         }
     }
 }
